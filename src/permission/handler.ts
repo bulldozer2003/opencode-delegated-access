@@ -386,7 +386,7 @@ async function handleSubjectPermission(args: {
   // ---- Classifier model --------------------------------------------------
   const model = resolveClassifierModel({
     configOverride: ctx.config.classifierModel,
-    sessionModel: ctx.sessionModel ?? fallbackModel ?? undefined,
+    sessionModel: fallbackModel ?? ctx.sessionModel ?? undefined,
   })
   if (!model) {
     log.warn("skip: no classifier model could be resolved", {
